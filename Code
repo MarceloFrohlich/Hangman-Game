@@ -1,0 +1,33 @@
+secreto = 'python'
+digitadas = []
+chances = 6
+print(f'JOGO DA FORCA: Você tem {chances} chances para descobrir a palavra secreta! VAMOS LÁ!')
+
+while True:
+    letra = input('Digite uma letra: ')
+    if len(letra) > 1:
+        print('Isso não vale, digite somente uma letra!')
+        continue
+    digitadas.append(letra)
+    if letra in secreto:
+        print(f'Parabéns, a letra {letra} está na palavra secreta!')
+    else:
+        print(f'A letra {letra} não está na palavra secreta!')
+        digitadas.pop()
+    secreto_temporario = ''
+    for letra_secreta in secreto:
+        if letra_secreta in digitadas:
+            secreto_temporario += letra_secreta
+        else:
+            secreto_temporario += '_'
+    if secreto_temporario == secreto:
+        print(f'Parabens! Você acertou a palavra secreta: {secreto_temporario.upper()} ')
+        break
+    if letra not in secreto:
+        chances -= 1
+        print(f'Você ainda possui {chances} chances!')
+        if chances <= 0:
+            print('Você perdeu!')
+            break
+    else:
+        print(f'Continue tentando, a palavra está assim: {secreto_temporario}')
