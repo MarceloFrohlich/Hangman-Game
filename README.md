@@ -1,2 +1,2 @@
 # Jogo-da-Forca
-Primeiro Jogo criado (Jogo da Forca)
+My first game created using python. (hangman game)
